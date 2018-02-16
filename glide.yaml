@@ -1,0 +1,34 @@
+package: github.com/pharmer/cloud-storage
+import:
+- package: github.com/appscode/go
+  version: master
+- package: github.com/golang/glog
+- package: github.com/jpillora/go-ogle-analytics
+- package: github.com/spf13/cobra
+  version: master
+- package: github.com/spf13/pflag
+  repo: https://github.com/appscode/pflag.git
+  vcs: git
+  version: master
+- package: github.com/taoh/linodego
+  repo: https://github.com/appscode/linodego.git
+  version: master
+  vcs: git
+- package: k8s.io/apiserver
+  version: kubernetes-1.9.2
+- package: k8s.io/apiextensions-apiserver
+  version: kubernetes-1.9.2
+- package: k8s.io/apimachinery
+  version: kubernetes-1.9.2
+- package: k8s.io/client-go
+  version: kubernetes-1.9.2
+- package: k8s.io/api
+  version: kubernetes-1.9.2
+- package: k8s.io/kubernetes
+  version: v1.9.2
+- package: github.com/appscode/kutil
+  version: release-6.0
+- package: github.com/kubernetes-incubator/external-storage
+  repo: https://github.com/pharmer/external-storage.git
+  version: master
+  vcs: git
