@@ -13,7 +13,7 @@ REPO_ROOT=$GOPATH/src/github.com/pharmer/cloud-storage
 source "$REPO_ROOT/hack/libbuild/common/pharmer_image.sh"
 
 APPSCODE_ENV=${APPSCODE_ENV:-dev}
-IMG=external-storage
+IMG=cloud-storage
 
 DIST=$GOPATH/src/github.com/pharmer/cloud-storage/dist
 mkdir -p $DIST
@@ -23,7 +23,7 @@ fi
 
 clean() {
     pushd $GOPATH/src/github.com/pharmer/cloud-storage/hack/docker
-    rm external-storage Dockerfile
+    rm cloud-storage Dockerfile
     popd
 }
 
@@ -37,23 +37,23 @@ build_binary() {
 
 build_docker() {
     pushd $GOPATH/src/github.com/pharmer/cloud-storage/hack/docker
-    cp $DIST/external-storage/external-storage-alpine-amd64 external-storage
-    chmod 755 external-storage
+    cp $DIST/cloud-storage/cloud-storage-alpine-amd64 cloud-storage
+    chmod 755 cloud-storage
 
     cat >Dockerfile <<EOL
 FROM alpine
 
 RUN set -x \
   && apk add --update --no-cache ca-certificates tzdata
-RUN ls
-COPY external-storage /usr/local/bin/external-storage
 
-ENTRYPOINT ["/usr/local/bin/external-storage"]
+COPY cloud-storage /usr/local/bin/cloud-storage
+
+ENTRYPOINT ["cloud-storage"]
 EOL
     local cmd="docker build -t pharmer/$IMG:$TAG ."
     echo $cmd; $cmd
 
-    rm external-storage Dockerfile
+    rm cloud-storage Dockerfile
     popd
 }
 

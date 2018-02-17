@@ -24,9 +24,9 @@ spec:
             secretKeyRef:
               key: token
               name: linode
-        image: pharmer/external-storage:canary
+        image: pharmer/cloud-storage:canary
         imagePullPolicy: Always
-        name: external-storage
+        name: cloud-storage
         args:
         - init
         resources:
