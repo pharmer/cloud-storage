@@ -34,6 +34,7 @@ func NewCmdInit() *cobra.Command {
 				cfg.Provisioner,
 				provisioner,
 				client.ServerVersion,
+				provider.Namer(),
 			)
 			pc.Run(wait.NeverStop)
 

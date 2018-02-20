@@ -24,6 +24,7 @@ const (
 
 type Interface interface {
 	Init() (controller.Provisioner, error)
+	Namer() controller.Namer
 }
 
 type Client struct {
