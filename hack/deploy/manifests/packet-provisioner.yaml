@@ -18,13 +18,18 @@ spec:
       containers:
       - env:
         - name: PROVIDER
-          value: linode
-        - name: LINODE_API_KEY
+          value: packet
+        - name: PACKET_API_KEY
           valueFrom:
             secretKeyRef:
-              key: token
-              name: linode
-        image: pharmer/cloud-storage:canary
+              key: apiKey
+              name: packet
+        - name: PACKET_PROJECT_ID
+          valueFrom:
+            secretKeyRef:
+              key: projectID
+              name: packet
+        image: pharmer/cloud-storage:packet
         imagePullPolicy: Always
         name: cloud-storage
         args:

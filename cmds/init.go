@@ -2,7 +2,6 @@ package cmds
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/golang/glog"
 	"github.com/kubernetes-incubator/external-storage/lib/controller"
@@ -24,7 +23,6 @@ func NewCmdInit() *cobra.Command {
 			if err != nil {
 				glog.Fatalf("Invalid provider specified: %v", err)
 			}
-			fmt.Println("providr")
 			provisioner, err := provider.Init()
 			if err != nil {
 

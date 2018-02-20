@@ -32,3 +32,5 @@ import:
   repo: https://github.com/pharmer/external-storage.git
   version: master
   vcs: git
+- package: github.com/packethost/packngo
+  version: master
