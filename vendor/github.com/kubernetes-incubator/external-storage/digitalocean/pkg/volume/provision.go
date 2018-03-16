@@ -28,12 +28,12 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/client-go/kubernetes"
-	"k8s.io/kubernetes/pkg/kubelet/apis"
+	//"k8s.io/kubernetes/pkg/kubelet/apis"
 )
 
 const (
-	flexvolumeVendor = "external-storage"
-	flexvolumeDriver = "digitalocean"
+	flexvolumeVendor = "pharmer"
+	flexvolumeDriver = "flexvolumes"
 
 	// are we allowed to set this? else make up our own
 	annCreatedBy = "kubernetes.io/createdby"
@@ -95,7 +95,7 @@ func (p *digitaloceanProvisioner) Provision(options controller.VolumeOptions) (*
 	annotations[annVolumeID] = vol.ID
 
 	labels := make(map[string]string)
-	labels[apis.LabelZoneFailureDomain] = vol.Region.Slug
+	//labels[apis.LabelZoneFailureDomain] = vol.Region.Slug
 	pv := &v1.PersistentVolume{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:        options.PVName,

@@ -34,3 +34,5 @@ import:
   vcs: git
 - package: github.com/packethost/packngo
   version: master
+- package: github.com/cpuguy83/go-md2man
+  version: v1.0.4
