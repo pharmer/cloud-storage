@@ -94,7 +94,7 @@ func (p *linodeProvisioner) Provision(options controller.VolumeOptions) (*core.P
 				core.ResourceName(core.ResourceStorage): resource.MustParse(fmt.Sprintf("%dGi", vol.Size)),
 			},
 			PersistentVolumeSource: core.PersistentVolumeSource{
-				FlexVolume: &core.FlexVolumeSource{
+				FlexVolume: &core.FlexPersistentVolumeSource{
 					Driver:   fmt.Sprintf("%s/%s", flexvolumeVendor, flexvolumeDriver),
 					Options:  map[string]string{},
 					ReadOnly: false,

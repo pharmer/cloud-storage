@@ -15,22 +15,22 @@ import:
   version: master
   vcs: git
 - package: k8s.io/apiserver
-  version: kubernetes-1.9.2
+  version: kubernetes-1.10.0
 - package: k8s.io/apiextensions-apiserver
-  version: kubernetes-1.9.2
+  version: kubernetes-1.10.0
 - package: k8s.io/apimachinery
-  version: kubernetes-1.9.2
+  version: kubernetes-1.10.0
 - package: k8s.io/client-go
-  version: kubernetes-1.9.2
+  version: kubernetes-1.10.0
 - package: k8s.io/api
-  version: kubernetes-1.9.2
+  version: kubernetes-1.10.0
 - package: k8s.io/kubernetes
-  version: v1.9.2
+  version: v1.10.0
 - package: github.com/appscode/kutil
-  version: release-6.0
+  version: release-7.0
 - package: github.com/kubernetes-incubator/external-storage
   repo: https://github.com/pharmer/external-storage.git
-  version: master
+  version: release-1.10
   vcs: git
 - package: github.com/packethost/packngo
   version: master

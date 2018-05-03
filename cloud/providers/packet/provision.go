@@ -91,7 +91,7 @@ func (p *packetProvisioner) Provision(options controller.VolumeOptions) (*core.P
 				core.ResourceName(core.ResourceStorage): resource.MustParse(fmt.Sprintf("%dGi", vol.Size)),
 			},
 			PersistentVolumeSource: core.PersistentVolumeSource{
-				FlexVolume: &core.FlexVolumeSource{
+				FlexVolume: &core.FlexPersistentVolumeSource{
 					Driver:   fmt.Sprintf("%s/%s", flexvolumeVendor, flexvolumeDriver),
 					FSType:   "ext4",
 					Options:  map[string]string{},
@@ -120,10 +120,10 @@ func (p *packetProvisioner) createVolume(volumeOptions controller.VolumeOptions)
 	createRequest := &packngo.VolumeCreateRequest{
 		Size:         int(volszInt),
 		BillingCycle: "hourly",
-		ProjectID:    projectId,
-		FacilityID:   zone,
-		Description:  volumeOptions.PVName,
-		PlanID:       "storage_1",
+		// ProjectID:    projectId,
+		FacilityID:  zone,
+		Description: volumeOptions.PVName,
+		PlanID:      "storage_1",
 	}
 	v, _, err := p.packClient.Volumes.Create(createRequest, projectId)
 	if err != nil {
