@@ -3,12 +3,14 @@ package packet
 import (
 	"context"
 	"fmt"
+
 	//	"github.com/golang/glog"
 	"github.com/kubernetes-incubator/external-storage/lib/controller"
 	"github.com/kubernetes-incubator/external-storage/lib/util"
 	core "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/client-go/kubernetes"
+
 	//"k8s.io/kubernetes/pkg/kubelet/apis"
 	"github.com/appscode/go/wait"
 	"github.com/packethost/packngo"
